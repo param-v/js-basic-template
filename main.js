@@ -7,14 +7,13 @@ let containerEl = document.getElementById("container")
 let colors = ["red", "green", "blue", "orange", "cyan", "purple"];
 // index ->     0       1        2       3         5
 
-console.log(colors.length);
-
-//Click Event
-document.addEventListener("click", update);
-
-function update() {
-    containerEl.innerHTML = `<div style="background: ${colors[randomInt(0, colors.length)]}"></div>`;
-
+// Display all colors on page
+for (let i = 0; i < 6; i++) {
+    let divStr = "";
+    divStr += `<div style="background: ${colors[i]}"></div>`;
+    
 }
+
+
 
 
