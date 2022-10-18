@@ -21,23 +21,27 @@ function processData(stringData) {
 }
 
 // Event Listener
-inputEl.addEventListener("keydown", submitHandler);
+inputEl.addEventListener("keyup", submitHandler);
 
 function submitHandler(event) {
-   if (event.keyCode === 13) {
-    // Add user's color to colors array and display
-    colors.push(inputEl.value);
-    inputEl.value = "";
-    displayColors(colors);
-   }
+   // Display all colors on page
+   let divStr = "";
+   let count = 0;
+   for (let i = 0; i < colors.length; i++) {
+        if (colors[i].includes(inputEl.value)) {
+        divStr += `<div style="background: ${colors[i]}">${colors[i]}</div>`;
+        }
+    }
+   containerEl.innerHTML = divStr;
 }
 
 function displayColors(colors) {
     // Display all colors on page
     let divStr = "";
+    let count = 0;
     for (let i = 0; i < colors.length; i++) {
         divStr += `<div style="background: ${colors[i]}">${colors[i]}</div>`;
-    }
-    containerEl.innerHTML = divStr;
+         }
+    containerEl.innerHTML = divStr + `<p>${count}</p>`;
 }
 
